@@ -17,7 +17,7 @@ RUN mvn clean package
 FROM tomcat:9.0-jdk17-openjdk
 
 # Copy the WAR file from the build stage to Tomcat's webapps directory
-COPY --from=build /target/*.war /target/test-1.0-SNAPSHOT.war
+COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/test-1.0-SNAPSHOT.war
 
 # Expose the default Tomcat port
 EXPOSE 8078
